@@ -11,10 +11,15 @@ get('/') do
 end
 
 # create a new contact by saving to array, then route back to contact list
-get('/contacts_after_add') do
+post('/contacts_after_add') do
   @name = params.fetch('contact-name')
   new_contact = Contact.new(@name)
   new_contact.save
+  @contacts = Contact.all
+  erb(:contact_list)
+end
+# for each post, you'd likely need a 'get' to actually display the page you want to see
+get('/contacts_after_add') do
   @contacts = Contact.all
   erb(:contact_list)
 end
@@ -37,12 +42,13 @@ get('/add_contact') do
   erb(:add_contact_form)
 end
 
-# dispkays an individual contact, by dynamically pulling the 'id' from URL and passing into find method
+# displays an individual contact, by dynamically pulling the 'id' from URL and passing into find method
 get('/contact/:id') do
   # separate note: the colon in front of 'id' ONLY exists here, in the path above
   @contact = Contact.find(params.fetch('id').to_i())
   erb(:contact_details)
 end
+
 get('/contact/:id/add') do
   @contact = Contact.find(params.fetch('id').to_i())
   email = params.fetch('contact-email')
