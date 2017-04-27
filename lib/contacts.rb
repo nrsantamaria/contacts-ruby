@@ -35,4 +35,15 @@ class Contact
   def add_phone_number(number)
     @phone_numbers.push(number)
   end
+
+  def Contact.find(input)
+    found_contact = nil
+    @@contacts.each do |contact|
+      if contact.id == input
+        found_contact = contact
+      end
+    end
+    found_contact
+  end
+
 end

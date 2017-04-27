@@ -67,4 +67,11 @@ describe(Contact) do
       expect(contact.phone_numbers()).to(eq(['555-5050']))
     end
   end
+  describe('.find') do
+    it('will find and return a contact instance by its id') do
+      contact = Contact.new('Greg')
+      contact.save
+      expect(Contact.find(1)).to(eq(contact))
+    end
+  end
 end

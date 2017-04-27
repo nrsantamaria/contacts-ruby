@@ -10,6 +10,16 @@ get('/') do
 end
 
 get('/contacts') do
+  @name = params.fetch('contact-name')
+  new_contact = Contact.new(@name)
+  new_contact.save
+  @contacts = Contact.all
+  erb(:contact_list)
+end
+
+get('/contacts_clear') do
+  Contact.clear
+  @contacts = Contact.all
   erb(:contact_list)
 end
 
