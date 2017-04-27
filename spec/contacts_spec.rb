@@ -71,7 +71,7 @@ describe(Contact) do
     it('will find and return a contact instance by its id') do
       contact = Contact.new('Greg')
       contact.save
-      expect(Contact.find(1)).to(eq(contact))
+      expect(Contact.find(1).name).to(eq(contact.name))
     end
   end
 end

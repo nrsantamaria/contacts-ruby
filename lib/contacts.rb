@@ -39,7 +39,7 @@ class Contact
   def Contact.find(input)
     found_contact = nil
     @@contacts.each do |contact|
-      if contact.id == input
+      if contact.id == (input)
         found_contact = contact
       end
     end

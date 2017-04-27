@@ -10,31 +10,31 @@ describe(Address) do
 
   describe('#initialize') do
     it('will create a new address') do
-      address = Address.new('1234 Pleasant Ave', 'Pleasantville', 'Pleasanton', '12345')
-      expect(address.state()).to(eq('Pleasanton'))
+      address = Address.new('1234 Pleasant Ave, Pleasantville, Pleasanton, 12345')
+      expect(address.address).to(eq('1234 Pleasant Ave, Pleasantville, Pleasanton, 12345'))
     end
   end
-  describe('#initialize') do
-    it('will create a new address with a city') do
-      address = Address.new('1234 Pleasant Ave', 'Pleasantville', 'Pleasanton', '12345')
-      expect(address.city()).to(eq('Pleasantville'))
-    end
-  end
-  describe('#initialize') do
-    it('will create a new address with a zip code') do
-      address = Address.new('1234 Pleasant Ave', 'Pleasantville', 'Pleasanton', '12345')
-      expect(address.zip()).to(eq('12345'))
-    end
-  end
-  describe('#initialize') do
-    it('will create a new address with a street') do
-      address = Address.new('1234 Pleasant Ave', 'Pleasantville', 'Pleasanton', '12345')
-      expect(address.street()).to(eq('1234 Pleasant Ave'))
-    end
-  end
+  # describe('#initialize') do
+  #   it('will create a new address with a city') do
+  #     address = Address.new('1234 Pleasant Ave', 'Pleasantville', 'Pleasanton', '12345')
+  #     expect(address.city()).to(eq('Pleasantville'))
+  #   end
+  # end
+  # describe('#initialize') do
+  #   it('will create a new address with a zip code') do
+  #     address = Address.new('1234 Pleasant Ave', 'Pleasantville', 'Pleasanton', '12345')
+  #     expect(address.zip()).to(eq('12345'))
+  #   end
+  # end
+  # describe('#initialize') do
+  #   it('will create a new address with a street') do
+  #     address = Address.new('1234 Pleasant Ave', 'Pleasantville', 'Pleasanton', '12345')
+  #     expect(address.street()).to(eq('1234 Pleasant Ave'))
+  #   end
+  # end
   describe('#save_address') do
     it('will create save a new address in an array') do
-      address = Address.new('1234 Pleasant Ave', 'Pleasantville', 'Pleasanton', '12345')
+      address = Address.new('1234 Pleasant Ave, Pleasantville, Pleasanton, 12345')
       address.save_address()
       expect(Address.all()).to(eq([address]))
     end

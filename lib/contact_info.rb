@@ -1,14 +1,11 @@
 class Address
 
-  attr_accessor :street, :city, :state, :zip
+  attr_accessor :address
 
   @@addresses = []
 
-  def initialize(street, city, state, zip)
-    self.street = street
-    self.city = city
-    self.state = state
-    self.zip = zip
+  def initialize(address)
+    self.address = address
   end
 
   def Address.all
